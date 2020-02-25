@@ -15,11 +15,9 @@ import torch.nn.functional as F
 class AllConvNet(nn.Module):
     def __init__(self, input_size, n_classes=10, **kwargs):
         super(AllConvNet, self).__init__()
-        self.conv1 = nn.Conv2d(input_size, 96, 3, padding=1)
-        self.conv2 = nn.Conv2d(96, 96, 3, padding=1)
+        self.conv1 = nn.Conv2d(input_size, 96, 5, padding=1)
         self.maxPool3=nn.MaxPool2d(3,stride=2,padding=1)
-        self.conv4 = nn.Conv2d(96, 192, 3, padding=1)
-        self.conv5 = nn.Conv2d(192, 192, 3, padding=1)
+        self.conv4 = nn.Conv2d(96, 192, 5, padding=1)
         self.maxPool6=nn.MaxPool2d(3,stride=2,padding=1)
         self.conv7 = nn.Conv2d(192, 192, 3, padding=1)
         self.conv8 = nn.Conv2d(192, 192, 1)
@@ -29,12 +27,10 @@ class AllConvNet(nn.Module):
     def forward(self, x):
         x_drop = F.dropout(x, .2)
         conv1_out = F.relu(self.conv1(x_drop))
-        conv2_out = F.relu(self.conv2(conv1_out))
-        maxPool3_out = F.relu(self.maxPool3(conv2_out))
+        maxPool3_out = F.relu(self.maxPool3(conv1_out))
         maxPool3_out_drop = F.dropout(maxPool3_out, .5)
         conv4_out = F.relu(self.conv4(maxPool3_out_drop))
-        conv5_out = F.relu(self.conv5(conv4_out))
-        maxPool6_out = F.relu(self.maxPool6(conv5_out))
+        maxPool6_out = F.relu(self.maxPool6(conv4_out))
         maxPool6_out_drop = F.dropout(maxPool6_out, .5)
         conv7_out = F.relu(self.conv7(maxPool6_out_drop))
         conv8_out = F.relu(self.conv8(conv7_out))
