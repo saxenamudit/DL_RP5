@@ -9,7 +9,6 @@
 #   (conv8): Conv2d(192, 192, kernel_size=(1, 1), stride=(1, 1))
 #   (class_conv): Conv2d(192, 10, kernel_size=(1, 1), stride=(1, 1))
 # )
-
 import torch.nn as nn
 import torch.nn.functional as F
 
