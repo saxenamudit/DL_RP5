@@ -26,6 +26,7 @@ class AllConvNet(nn.Module):
 		self.class_conv = nn.Conv2d(192, n_classes, 1)
 
 
+
     def forward(self, x):
         x_drop = F.dropout(x, .2)
         conv1_out = F.relu(self.conv1(x_drop))

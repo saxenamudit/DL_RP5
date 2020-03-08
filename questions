@@ -1,0 +1,7 @@
+Conv pool model B: 2 (5x5) or 2 (1x1)?
+Conv pool model A: 2 (5x5) or 3 (5x5)?
+what does squeeze(-1) do? -- flattening (check)
+train mean train std in trainset? --working
+adaptive_avg_pool2d, pool? -- check
+padding 1 in max pool? -- done
+6x6 output dimension? ours output 8x8. --check
