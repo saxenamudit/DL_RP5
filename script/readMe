@@ -1,0 +1,19 @@
+Ive written these scripts to automate the process of running all our models.
+As of now, I've only added my models but adding your models is pretty straightforward as well.
+The files are as follows:
+
+VaryLr.py is the python file that contains the definition of all the pytorch classes (models) that we want to run. This python file is used to generate different python files for all models/learning rate combinations. These models are located in the models folder.
+
+runPytorch.sh is a shell file that runs VaryLr.py and then runs the generated python files. I'm storing the entire output logs into their respective output files in the same directory. 
+
+Steps you will have to follow to make it work are as follows:
+
+1. chmod 777 runPytorch.sh
+
+2. Edit VaryLr.py to include your classes (models) as variables. Make sure you add these variable names in models and modelNames list in the python file (in the same order!).
+
+3. ./runPytorch.sh
+And you will see cifar 10 being downloaded to the models folder and the runs starting. The output logs will be stored in respective output files in the 'models directory'
+
+Best,
+Mudit.
