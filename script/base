@@ -101,6 +101,6 @@ def test(epoch, best_loss, best_epoch):
         best_loss = test_loss
     return best_loss, best_epoch
 for epoch in range(350):
-    scheduler.step()
     train(epoch)
+    scheduler.step()
     best_loss, best_epoch = test(epoch, best_loss, best_epoch)

@@ -4,5 +4,5 @@ python varyLr.py
 cd models
 for i in *.py 
 do
-	python $i > $i".output"
+	python $i
 done
